@@ -1,0 +1,27 @@
+# Bỏ qua toàn bộ thư mục thư viện HAL và CMSIS do CubeMX tải về
+**/Drivers/
+
+# Bỏ qua các file sinh ra khi build trong Keil C
+*.bak
+*.d
+*.o
+*.crf
+*.dep
+*.axf
+*.htm
+*.build_log.htm
+*.map
+*.hex
+*.bin
+*.lnp
+*.sct
+*.uvguix.*
+*.uvoptx
+
+# Bỏ qua các thư mục chứa object/list của Keil C
+**/MDK-ARM/Debug/
+**/MDK-ARM/RTE/
+**/MDK-ARM/Listings/
+**/MDK-ARM/Objects/
+**/MDK-ARM/*.uvguix.*
+**/MDK-ARM/*.uvoptx
