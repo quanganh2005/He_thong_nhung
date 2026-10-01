@@ -10,6 +10,7 @@
       <TargetName>RS485_Modbus_Node</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
+      <pCCUsed>5060300::V5.06 update 3 (build 300)::ARMCC</pCCUsed>
       <TargetOption>
         <TargetCommonOption>
           <Device>STM32F103C8</Device>
@@ -417,6 +418,11 @@
               <FileName>stm32f1xx_hal_msp.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Core/Src/stm32f1xx_hal_msp.c</FilePath>
+            </File>
+            <File>
+              <FileName>rs485_phy.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\rs485_phy.c</FilePath>
             </File>
           </Files>
         </Group>
