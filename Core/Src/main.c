@@ -21,7 +21,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "app_master.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -91,7 +91,7 @@ int main(void)
   MX_GPIO_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
-
+  Master_Init(&huart1, &htim2, &hi2c1);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -102,6 +102,7 @@ int main(void)
 	  // Bắt đầu lắng nghe dữ liệu ngắt từng byte trên UART1
 	    HAL_UART_Receive_IT(&huart1, &RxData, 1);
     /* USER CODE BEGIN 3 */
+        Master_Task();
   }
   /* USER CODE END 3 */
 }
