@@ -56,6 +56,11 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+/**
+ * @brief Hàm xu lý nhan khung tin kiem thu (Test Echo):
+ *        Khi nhan duoc 1 khung du lieu hoàn chinh qua RS485,
+ *        vi dieu khien se gui nguoc lai y nguyên khung du lieu dó ra bus.
+ */
 void Test_EchoCallback(uint8_t *data, uint16_t length)
 {
     RS485_Send(data, length);
@@ -94,7 +99,9 @@ int main(void)
   MX_TIM2_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
+	// 1. Khoi tao tang vat lý RS485 voi USART1, TIM2, và chân dieu khien DE/RE
 RS485_Init(&huart1, &htim2, DE_RE_GPIO_Port, DE_RE_Pin);
+// 2. Ðang ký hàm Echo de kiem the tang truyen thông
 RS485_RegisterCallback(Test_EchoCallback);
   /* USER CODE END 2 */
 
@@ -151,19 +158,24 @@ void SystemClock_Config(void)
 /* USER CODE BEGIN 4 */
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
     if (huart->Instance == USART1) {
-        RS485_UART_RxByteCallback();
+        RS485_UART_RxByteCallback();// Chuyen tiep su kien sang module RS485
     }
 }
 
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart) {
     if (huart->Instance == USART1) {
-        RS485_UART_TxCpltCallback();
+        RS485_UART_TxCpltCallback();// Chuyen tiep su kien de ha chân DE/RE
     }
 }
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
     if (htim->Instance == TIM2) {
-        RS485_Timer_PeriodElapsedCallback();
+        RS485_Timer_PeriodElapsedCallback();// Báo ket thúc khung tin (timeout 3.5 ký tu)
+    }
+}
+void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart) {
+    if (huart->Instance == USART1) {
+        RS485_UART_ErrorCallback();// Xóa co loi và kích hoat lai ngat nhan
     }
 }
 /* USER CODE END 4 */
