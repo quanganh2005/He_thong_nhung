@@ -1,0 +1,6 @@
+../Core/Src/sensor.c:10:6:SENSOR_Init	1
+../Core/Src/sensor.c:15:6:SENSOR_ReadData	1
+../Core/Src/sensor.c:33:10:SENSOR_GetTemperature	1
+../Core/Src/sensor.c:37:10:SENSOR_GetHumidity	1
+../Core/Src/sensor.c:41:6:RELAY_SetState	2
+../Core/Src/sensor.c:52:9:RELAY_GetState	1

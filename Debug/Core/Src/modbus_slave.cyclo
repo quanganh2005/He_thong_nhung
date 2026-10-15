@@ -1,0 +1,4 @@
+../Core/Src/modbus_slave.c:11:10:Calculate_CRC16	4
+../Core/Src/modbus_slave.c:27:6:Modbus_Init	1
+../Core/Src/modbus_slave.c:34:6:RS485_SendResponse	2
+../Core/Src/modbus_slave.c:49:6:Modbus_ProcessIncomingData	10

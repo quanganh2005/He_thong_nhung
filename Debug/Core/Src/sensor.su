@@ -1,0 +1,6 @@
+../Core/Src/sensor.c:10:6:SENSOR_Init	8	static
+../Core/Src/sensor.c:15:6:SENSOR_ReadData	4	static
+../Core/Src/sensor.c:33:10:SENSOR_GetTemperature	4	static
+../Core/Src/sensor.c:37:10:SENSOR_GetHumidity	4	static
+../Core/Src/sensor.c:41:6:RELAY_SetState	16	static
+../Core/Src/sensor.c:52:9:RELAY_GetState	4	static
